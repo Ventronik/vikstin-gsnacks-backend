@@ -1,15 +1,25 @@
 {
-  "name": "galvanize-snacks",
+  "name": "vikstin-gsnacks-backend",
   "version": "1.0.0",
-  "description": "Snack reviewing application",
-  "main": "server.js",
+  "description": "Back-end for https://github.com/gEightyTwo/vikstin-gsnacks-frontend",
+  "main": "./src/server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon ./src/server.js",
     "knex": "knex",
-    "start": "node server.js"
+    "start": "node ./src/server.js"
   },
-  "keywords": [],
-  "author": "Scott Hurlow <scott.hurlow@galvanize.com>",
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "expressjs",
+    "knexjs",
+    "sql",
+    "postgresql"
+  ],
+  "author": [
+    "Vikanda Gonzales <vikanda.gonzales@yahoo.com>",
+    "Dustin Ruskell"
+  ],
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
