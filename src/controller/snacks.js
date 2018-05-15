@@ -1,4 +1,4 @@
-const model = require('../models/students')
+const model = require('../model/snacks')
 
 //////////////////////////////////////////////////////////////////////////////
 // Basic CRUD Methods
@@ -33,9 +33,5 @@ function getOne(req, res, next) {
 
 module.exports = {
   getAll,
-  getOne,
-  create,
-  update,
-  getAllInstructors,
-  checkIfStudentExists
+  getOne
 }

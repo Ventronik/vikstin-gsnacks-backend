@@ -16,25 +16,26 @@ app.use(morgan('dev'))
 const snacks = require('./routes/snacks');
 app.use('/api', snacks);
 
-const users = require('./routes/users');
-app.use('/api', user);
-
-const reviews = require('./routes/reviews');
-app.use('/api', reviews);
+// const users = require('./routes/users');
+// app.use('/api', user);
+//
+// const reviews = require('./routes/reviews');
+// app.use('/api', reviews);
 
 //////////////////////////////////////////////////////////////////////////////
 // Authentication
 //////////////////////////////////////////////////////////////////////////////
-app.use('/auth', require('./routes/auth'));
 
-app.get('/protected',
-        authController.isAuthenticated,
-        function(req, res, next){ res.send({ id: req.claim.id, message: "Convict status confirmed" }) })
+// app.use('/auth', require('./routes/auth'));
 
-app.get('/protected/:userId',
-        authController.isAuthenticated,
-        authController.isSelf,
-        function(req, res, next){ res.send({ id: req.claim.id, message: "Convict status unconfirmed. Please see sentencing for authorized access."}) })
+// app.get('/protected',
+//         authController.isAuthenticated,
+//         function(req, res, next){ res.send({ id: req.claim.id, message: "Convict status confirmed" }) })
+//
+// app.get('/protected/:userId',
+//         authController.isAuthenticated,
+//         authController.isSelf,
+        // function(req, res, next){ res.send({ id: req.claim.id, message: "Convict status unconfirmed. Please see sentencing for authorized access."}) })
 
 app.use((req, res) => {
   const status = 404;
