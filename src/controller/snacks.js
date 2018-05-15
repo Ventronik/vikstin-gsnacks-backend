@@ -15,7 +15,7 @@ function getAll(req, res, next) {
 }
 
 function getOne(req, res, next) {
-  model.getOne(parseInt(req.params.studentId))
+  model.getOne(parseInt(req.params.id))
     .then(function(data) {
       if (data) {
         return res.status(200).send({
@@ -24,7 +24,7 @@ function getOne(req, res, next) {
       } else {
         throw {
           status: 404,
-          message: 'Student Not Found'
+          message: 'Snack removed do to riots'
         }
       }
     })

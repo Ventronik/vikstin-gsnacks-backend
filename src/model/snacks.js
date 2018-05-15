@@ -1,12 +1,15 @@
 const db = require('../../db')
 // const bcrypt = require('bcrypt-as-promised')
 
-
-
-function getAll (req, res, next) {
+function getAll () {
   return db('snacks')
 }
 
+function getOne (snackId) {
+  return db('snacks').where({ id: snackId }).first()
+}
+
 module.exports ={
-  getAll
+  getAll,
+  getOne
 }
