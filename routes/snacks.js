@@ -6,9 +6,9 @@ const router = express.Router();
 router.get('/snacks', (req, res, next) => {
   knex('snacks')
     .then((result) => {
-      res.send(result)
+      res.send(result);
     })
-    .catch((err) => next(err))
+    .catch((err) => next(err));
 })
 
 module.exports = router;
