@@ -1,4 +1,4 @@
-const snacks = require('../data/snacks.json')
+const snacks = require('../data/snacks.json');
 
 exports.seed = function(knex, Promise) {
   return knex('snacks').del()

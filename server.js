@@ -1,5 +1,4 @@
-
-const express = require('express')
+const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
@@ -26,5 +25,5 @@ app.use((err, _req, res, _next) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log('listening on port', port);
+  console.log(`Always watching you on PORT ${port} 👁`);
 });
