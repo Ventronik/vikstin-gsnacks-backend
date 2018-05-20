@@ -1,7 +1,7 @@
 const express = require('express');
 const index = require('../../db');
 const snackController = require('../controller/snacks')
-const commentController = require('../controller/comments')
+// const commentController = require('../controller/comments')
 
 const router = express.Router();
 

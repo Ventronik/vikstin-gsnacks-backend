@@ -16,8 +16,8 @@ app.use(morgan('dev'))
 const snacks = require('./routes/snacks');
 app.use('/api', snacks);
 
-// const users = require('./routes/users');
-// app.use('/api', user);
+const users = require('./routes/users');
+app.use('/api', users);
 //
 // const reviews = require('./routes/reviews');
 // app.use('/api', reviews);
