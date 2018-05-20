@@ -9,7 +9,12 @@ function getOne (snackId) {
   return db('snacks').where({ id: snackId }).first()
 }
 
+function getAllSnackComments (snackId) {
+  return db('reviews').where({ snack_id: snackId })
+}
+
 module.exports ={
   getAll,
-  getOne
+  getOne,
+  getAllSnackComments
 }

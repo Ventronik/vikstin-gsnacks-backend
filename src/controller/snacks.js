@@ -31,7 +31,26 @@ function getOne(req, res, next) {
     .catch(next)
 }
 
+function getAllSnackComments(req, res, next) {
+  console.log('kittens')
+  model.getAllSnackComments(parseInt(req.params.id))
+  .then(function(data) {
+    if (data) {
+      return res.status(200).send({
+        data
+      })
+    } else {
+      throw {
+        status: 404,
+        message: 'Comments sealed by court order'
+      }
+    }
+  })
+  .catch(next)
+}
+
 module.exports = {
   getAll,
-  getOne
+  getOne,
+  getAllSnackComments
 }
