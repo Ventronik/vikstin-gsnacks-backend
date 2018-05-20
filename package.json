@@ -22,10 +22,12 @@
   ],
   "license": "ISC",
   "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.17.2",
     "boom": "^5.2.0",
     "cors": "^2.8.4",
     "express": "^4.15.3",
+    "jsonwebtoken": "^8.2.1",
     "knex": "^0.13.0",
     "morgan": "^1.8.2",
     "pg": "^7.0.2"

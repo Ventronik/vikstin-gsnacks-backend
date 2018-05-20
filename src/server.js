@@ -18,6 +18,8 @@ app.use('/api', snacks);
 
 const users = require('./routes/users');
 app.use('/api', users);
+
+const authController = require('./controllers/auth')
 //
 // const reviews = require('./routes/reviews');
 // app.use('/api', reviews);
