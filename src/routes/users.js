@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/users', userController.getAll)
 router.get('/users/:id/comments', userController.getAllUserComments)
 
+router.post('/', userController.create)
 router.get('/users/:id', userController.getOne)
 
 

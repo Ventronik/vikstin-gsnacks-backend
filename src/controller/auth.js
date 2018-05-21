@@ -1,4 +1,4 @@
-const authModel = require('../models/auth')
+const authModel = require('../model/auth')
 const jwt = require('jsonwebtoken')
 
 //////////////////////////////////////////////////////////////////////////////
