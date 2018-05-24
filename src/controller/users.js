@@ -1,4 +1,4 @@
-const model = require('../model/snacks')
+const model = require('../model/users')
 
 //////////////////////////////////////////////////////////////////////////////
 // Basic CRUD Methods
@@ -24,16 +24,16 @@ function getOne(req, res, next) {
       } else {
         throw {
           status: 404,
-          message: 'Snack removed do to riots'
+          message: 'User has been released due to good behavior'
         }
       }
     })
     .catch(next)
 }
 
-function getAllSnackComments(req, res, next) {
+function getAllUserComments(req, res, next) {
   console.log('kittens')
-  model.getAllSnackComments(parseInt(req.params.id))
+  model.getAllUserComments(parseInt(req.params.id))
   .then(function(data) {
     if (data) {
       return res.status(200).send({
@@ -49,8 +49,25 @@ function getAllSnackComments(req, res, next) {
   .catch(next)
 }
 
+function create(req, res, next){
+  // if(!req.body.username){
+  //   return next({ status: 400, message: 'Bad username'})
+  // }
+
+  if(!req.body.password){
+    return next({ status: 400, message: 'Bad password'})
+  }
+
+  model.create(req.body.firstname, req.body.lastname, req.body.email, req.body.password)
+  .then(function(data){
+    return res.status(201).send({ data })
+  })
+  .catch(next)
+}
+
 module.exports = {
   getAll,
   getOne,
-  getAllSnackComments
+  getAllUserComments,
+  create
 }

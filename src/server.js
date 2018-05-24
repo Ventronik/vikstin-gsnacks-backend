@@ -4,11 +4,17 @@ const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors')
 
+// if(process.env.NODE_ENV !== 'production'){
+//   require('dotenv').load()
+// }
+
 const app = express();
+
 app.use(bodyParser.json());
 app.use(cors())
 app.use(morgan('dev'))
 
+// require('dotenv').config();
 
 //////////////////////////////////////////////////////////////////////////////
 // Routes
@@ -16,8 +22,11 @@ app.use(morgan('dev'))
 const snacks = require('./routes/snacks');
 app.use('/api', snacks);
 
-// const users = require('./routes/users');
-// app.use('/api', user);
+const users = require('./routes/users');
+app.use('/api', users);
+
+const authController = require('./routes/auth');
+app.use('/protected', authController)
 //
 // const reviews = require('./routes/reviews');
 // app.use('/api', reviews);
@@ -44,14 +53,24 @@ app.use((req, res) => {
 });
 
 app.use((err, _req, res, _next) => {
-  console.error(err);
-  const status = err.status || 500;
-  const message = err.message || 'Something went wrong!';
-  res.status(status).json({ message, status });
+  console.log(err)
+  const errorMessage = {}
+
+  if(process.env.NODE_ENV !== 'production' && err.stack)
+    errorMessage.stack = err.stack
+
+  errorMessage.status = err.status || 500
+  errorMessage.message = err.message || 'Internal Server Error'
+
+  res.status(errorMessage.status).send(errorMessage)
 });
+
+//////////////////////////////////////////////////////////////////////////////
+// Starting Server
+//////////////////////////////////////////////////////////////////////////////
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Always watching you on PORT ${port} 👁`);
+  console.log(`VFI Surveilance is fully operational on PORT ${port} 👁`);
 });
