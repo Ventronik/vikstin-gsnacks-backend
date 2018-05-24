@@ -58,7 +58,7 @@ function create(req, res, next){
     return next({ status: 400, message: 'Bad password'})
   }
 
-  model.create(req.body.firstname, req.body.lastname, req.body.email, req.body.password)
+  model.create(req.body.first_name, req.body.last_name, req.body.email, req.body.password)
   .then(function(data){
     return res.status(201).send({ data })
   })

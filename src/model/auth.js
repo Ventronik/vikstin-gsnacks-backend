@@ -17,7 +17,7 @@ const userModel = require('./users')
 // 5. "return/continue" promise
 //////////////////////////////////////////////////////////////////////////////
 
-function login(username, password){
+function login(email, password){
   let user
 
   // 1. Check to see if user already exists
