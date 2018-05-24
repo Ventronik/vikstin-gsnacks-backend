@@ -72,5 +72,5 @@ app.use((err, _req, res, _next) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Always watching you on PORT ${port} 👁`);
+  console.log(`VFI Surveilance is fully operational on PORT ${port} 👁`);
 });

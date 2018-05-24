@@ -21,7 +21,7 @@ function login(username, password){
   let user
 
   // 1. Check to see if user already exists
-  return userModel.getOneByUserName(username)
+  return userModel.getOneByUserName(email)
   .then(function(data){
     // 1a. if not, return a 400 with appropriate error message
     if(!data) throw { status: 400, message: "Bad Request"}
