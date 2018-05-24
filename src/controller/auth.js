@@ -17,7 +17,7 @@ const jwt = require('jsonwebtoken')
 
 function login(req, res, next){
   // 1. Make sure that request is good
-  if(!req.body.lastname){
+  if(!req.body.email){
     return next({ status: 400, message: 'Bad request'})
   }
 
@@ -26,7 +26,7 @@ function login(req, res, next){
   }
 
   // 2. Attempt Login
-  authModel.login(req.body.lastname, req.body.password)
+  authModel.login(req.body.email, req.body.password)
   .then(function(user){
 
     // 3. Create token
@@ -70,7 +70,7 @@ function isAuthenticated(req, res, next){
 
 function isSelf(req, res, next){
 
-  if(parseInt(req.params.userId) !== req.claim.id){
+  if(parseInt(req.params.id) !== req.claim.id){
     return next({ status: 401, message: 'Unauthorized' })
   }
 
