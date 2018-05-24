@@ -4,9 +4,9 @@ const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors')
 
-// if(process.env.NODE_ENV !== 'production'){
-//   require('dotenv').load()
-// }
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').load()
+}
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(morgan('dev'))
 
-// require('dotenv').config();
+require('dotenv').config();
 
 //////////////////////////////////////////////////////////////////////////////
 // Routes
@@ -25,8 +25,8 @@ app.use('/api', snacks);
 const users = require('./routes/users');
 app.use('/api', users);
 
-const authController = require('./routes/auth');
-app.use('/protected', authController)
+const authRouter = require('./routes/auth');
+app.use('/protected', authRouter)
 //
 // const reviews = require('./routes/reviews');
 // app.use('/api', reviews);
@@ -35,7 +35,7 @@ app.use('/protected', authController)
 // Authentication
 //////////////////////////////////////////////////////////////////////////////
 
-// app.use('/auth', require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
 
 // app.get('/protected',
 //         authController.isAuthenticated,

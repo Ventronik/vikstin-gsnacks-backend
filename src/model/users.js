@@ -45,5 +45,6 @@ module.exports ={
   getAll,
   getOne,
   getAllUserComments,
+  getOneByUserName,
   create
 }
