@@ -16,14 +16,14 @@ function getAllUserComments (userId) {
 function getOneByUserName(email){
   return (
     db('users')
-    .where({ first_name },{ last_name })
+    .where({ email })
     .first()
   )
 }
 
 function create(first_name, last_name, email, password){
 
-  return getOneByUserName(username)
+  return getOneByUserName(email)
   .then(function(data){
     if(data) throw { status: 400, message:'User already exists'}
     return bcrypt.hash(password, 10)
@@ -45,5 +45,6 @@ module.exports ={
   getAll,
   getOne,
   getAllUserComments,
+  getOneByUserName,
   create
 }

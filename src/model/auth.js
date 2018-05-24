@@ -17,7 +17,7 @@ const userModel = require('./users')
 // 5. "return/continue" promise
 //////////////////////////////////////////////////////////////////////////////
 
-function login(username, password){
+function login(email, password){
   let user
 
   // 1. Check to see if user already exists
@@ -25,12 +25,12 @@ function login(username, password){
   .then(function(data){
     // 1a. if not, return a 400 with appropriate error message
     if(!data) throw { status: 400, message: "Bad Request"}
-
+    console.log(data);
     // save user for later use
     user = data
 
     // 2. compare password in the database with the password provided by user
-    return bcrypt.compare(password, data.password)
+    return bcrypt.compare(password, data.hashed_password)
   })
   .catch(bcrypt.MISMATCH_ERROR, function(){
     // 3. If the passwords do not match, respond with 401 Unauthorized

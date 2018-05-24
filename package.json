@@ -26,6 +26,7 @@
     "body-parser": "^1.17.2",
     "boom": "^5.2.0",
     "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.15.3",
     "jsonwebtoken": "^8.2.1",
     "knex": "^0.13.0",
