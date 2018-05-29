@@ -25,11 +25,11 @@ app.use('/api', snacks);
 const users = require('./routes/users');
 app.use('/api', users);
 
-const authRouter = require('./routes/auth');
-app.use('/protected', authRouter)
-//
-// const reviews = require('./routes/reviews');
-// app.use('/api', reviews);
+const reviews = require('./routes/reviews');
+app.use('/api', reviews);
+
+const authController = require('./routes/auth');
+app.use('/protected', authController)
 
 //////////////////////////////////////////////////////////////////////////////
 // Authentication
@@ -72,5 +72,5 @@ app.use((err, _req, res, _next) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`VFI Surveilance is fully operational on PORT ${port} 👁`);
+  console.log(`VFP Surveilance is fully operational on PORT ${port} 👁`);
 });
