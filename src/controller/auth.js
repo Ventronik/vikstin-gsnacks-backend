@@ -48,7 +48,7 @@ function getAuthStatus(req, res, next){
 //////////////////////////////////////////////////////////////////////////////
 
 function isAuthenticated(req, res, next){
-
+  console.log(req.headers)
   if(!req.headers.authorization){
     return next({ status: 401, message: 'Unauthorized' })
   }
