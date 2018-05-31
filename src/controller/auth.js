@@ -38,7 +38,6 @@ function login(req, res, next){
   .catch(next)
 }
 
-
 function getAuthStatus(req, res, next){
     res.status(200).send({id:req.claim.id}) //sends back the user ID
 }
@@ -48,14 +47,10 @@ function getAuthStatus(req, res, next){
 //////////////////////////////////////////////////////////////////////////////
 
 function isAuthenticated(req, res, next){
-  console.log(req.headers)
   if(!req.headers.authorization){
     return next({ status: 401, message: 'Unauthorized' })
   }
   const [scheme, credentials] = req.headers.authorization.split(' ')
-  console.log(scheme)
-  console.log(credentials)
-
 
   jwt.verify(credentials, process.env.SECRET, (err, payload)=>{
     if(err){
@@ -69,15 +64,12 @@ function isAuthenticated(req, res, next){
 }
 
 function isSelf(req, res, next){
-
   if(parseInt(req.params.id) !== req.claim.id){
     return next({ status: 401, message: 'Unauthorized' })
   }
 
   next()
 }
-
-
 
 module.exports = {
   login,
