@@ -31,8 +31,9 @@ function updateReview(id, content){
 
   return(
     db('reviews')
-    .update({ title, snack_id, rating, text, user_id})
-    .where({ id })
+      .update({ title, snack_id, rating, text, user_id})
+      .where({ id })
+    .returning('*')
   )
 }
 

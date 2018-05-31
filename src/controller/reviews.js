@@ -7,6 +7,7 @@ const model = require('../model/reviews')
 function getAll(req, res, next) {
   model.getAll()
     .then(function(data) {
+      console.log(data)
       res.status(200).send({
         data
       })
