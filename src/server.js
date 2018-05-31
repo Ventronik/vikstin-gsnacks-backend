@@ -4,9 +4,9 @@ const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors')
 
-// if(process.env.NODE_ENV !== 'production'){
-//   require('dotenv').load()
-// }
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').load()
+}
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(morgan('dev'))
 
-// require('dotenv').config();
+require('dotenv').config();
 
 //////////////////////////////////////////////////////////////////////////////
 // Routes
@@ -72,5 +72,5 @@ app.use((err, _req, res, _next) => {
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`VFP Surveilance is fully operational on PORT ${port} 👁`);
+  console.log(`VFP Surveillance is fully operational on PORT ${port} 👁`);
 });
