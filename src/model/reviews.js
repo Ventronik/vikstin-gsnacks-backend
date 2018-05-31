@@ -37,6 +37,7 @@ function updateReview(id, content){
 }
 
 function deleteReview(id){
+  console.log(id)
   return(
     db('reviews')
     .del()

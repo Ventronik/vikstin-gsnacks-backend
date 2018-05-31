@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get('/reviews', reviewController.getAll)
 router.get('/reviews/:id/', reviewController.getOne)
-router.post('/reviews/', authController.isAuthenticated, reviewController.createReview)
-router.patch('/reviews/:id/', authController.isAuthenticated, reviewController.updateReview)
-router.delete('/reviews/:id/', authController.isAuthenticated, reviewController.deleteReview)
+router.post('/reviews/', reviewController.createReview) //removed auth controll
+router.patch('/reviews/:id/', reviewController.updateReview)//removed auth controll
+router.delete('/reviews/:id/', reviewController.deleteReview)//removed auth controll
 
 module.exports = router;
