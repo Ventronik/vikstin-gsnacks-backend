@@ -1,3 +1,4 @@
+
 const snacks = require('../data/snacks.json');
 
 exports.seed = function(knex, Promise) {
