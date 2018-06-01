@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.text('title').notNullable().defaultTo('');
     table.text('text').notNullable().defaultTo('');
-    table.integer('rating').notNullable().defaultsTo(1);
+    table.decimal('rating').notNullable().defaultsTo(1);
     table.integer('snack_id').notNullable().references('snacks.id');
     table.integer('user_id').notNullable().references('users.id');
   });
